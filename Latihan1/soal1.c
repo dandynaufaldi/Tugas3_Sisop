@@ -5,7 +5,7 @@
 #include<unistd.h>
 #include<stdlib.h>
 pthread_t tid[2];
-char string[200];
+char a;
 
 int wait=1;
 
@@ -20,10 +20,11 @@ void* copy(void *arg)
 	FILE* outp=fopen("salin1.txt","w");
 	if(inpu !=NULL)
 	{
-		while(fgets(string, 199, inpu)!=NULL)
+		do
 		{
-			fputs(string,outp);
-		}
+			a=fgetc(inpu);
+			fputc(a,outp);
+		}while(a!=EOF);
 		fclose(inpu);
 		wait = 0;
 	}
@@ -38,10 +39,11 @@ void* copy(void *arg)
 	FILE* out=fopen("salin2.txt", "w");
 	if(inp !=NULL)
 	{
-		while(fgets(string, 199, inp)!=NULL)
+		do
 		{
-			fputs(string,out);
-		}
+			a=fgetc(inp);
+			fputc(a,out);
+		}while(a!=EOF);
 		fclose(inp);
 	}
 	else

@@ -27,13 +27,11 @@ int main()
 		}
 		printf("thr %d from %d to %d\n", i, batas.from, batas.to);
 		int status = pthread_create( &thr[i], NULL, cetakprima, (void*)&batas);
-		// if (status){
-		// 	printf("Failed to create thread %d\n", i);
-		// 	i--;
-		// }
-	}
-	for(i=0;i<T;i++){
-		pthread_join(thr[i], NULL);
+		if (status){
+			printf("Failed to create thread %d\n", i);
+			i--;
+		}
+		else pthread_join(thr[i], NULL);
 	}
 	return 0;
 }

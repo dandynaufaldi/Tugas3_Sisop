@@ -19,7 +19,7 @@ void* menu(void *arg)
     {
 	wait=1;
 	delay=0;
-	printf("Choose mode:\n0.Exit\n1.Display Playlist\n2.Play\n3.Stop\n4.Pause\n5.Resume\n6Help\n");
+	printf("Choose mode:\n0.Exit\n1.Display Playlist\n2.Play\n3.Stop\n4.Pause\n5.Resume\n6.Help\n");
 	scanf("%d",&mode);
 	if(mode>2&&mode<6)
 	{
@@ -36,6 +36,7 @@ void* menu(void *arg)
 	}
 	else if(mode==0)
 	{
+	    change=1;
 	    break;
 	}
 	else
